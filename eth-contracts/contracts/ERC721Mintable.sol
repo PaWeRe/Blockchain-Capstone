@@ -312,6 +312,7 @@ contract ERC721 is Pausable, ERC165 {
 }
 
 contract ERC721Enumerable is ERC165, ERC721 {
+
     // Mapping from owner to list of owned token IDs
     mapping(address => uint256[]) private _ownedTokens;
 
@@ -376,6 +377,7 @@ contract ERC721Enumerable is ERC165, ERC721 {
      * @param from current owner of the token
      * @param to address to receive the ownership of the given token ID
      * @param tokenId uint256 ID of the token to be transferred
+     * Meaning of super explained: https://ethereum.stackexchange.com/questions/12920/what-does-the-keyword-super-in-solidity-do/12921#12921?newreg=402df27fa86e4fc5bfa512914e133092
      */
     function _transferFrom(address from, address to, uint256 tokenId) internal {
         super._transferFrom(from, to, tokenId);
@@ -486,8 +488,12 @@ contract ERC721Enumerable is ERC165, ERC721 {
 contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     
     // TODO: Create private vars for token _name, _symbol, and _baseTokenURI (string)
+    string private _name;
+    string private _symbol;
+    string private _baseTokenURI
 
     // TODO: create private mapping of tokenId's to token uri's called '_tokenURIs'
+    mapping(uint256 => string) private _tokenUIRs;
 
     bytes4 private constant _INTERFACE_ID_ERC721_METADATA = 0x5b5e139f;
     /*
@@ -500,14 +506,24 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 
     constructor (string memory name, string memory symbol, string memory baseTokenURI) public {
         // TODO: set instance var values
+        _name = name;
+        _symbol = symbol;
+        _baseTokenURI = baseTokenURI;
 
         _registerInterface(_INTERFACE_ID_ERC721_METADATA);
     }
 
     // TODO: create external getter functions for name, symbol, and baseTokenURI
+    function name() external view returns(string memory) {
+        return _name;
+    }
 
-    function tokenURI(uint256 tokenId) external view returns (string memory) {
-        require(_exists(tokenId));
+    function symbol() external view returns(string memory) {
+        return _symbol;
+    }
+
+    function tokenURI(uint256 tokenId) external view returns(string memory) {
+        require(_exists(tokenId), 'TokenId already exists!');
         return _tokenURIs[tokenId];
     }
 
@@ -518,7 +534,12 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
     // TIP #2: you can also use uint2str() to convert a uint to a string
         // see https://github.com/oraclize/ethereum-api/blob/master/oraclizeAPI_0.5.sol for strConcat()
     // require the token exists before setting
+    function _setTokenURI(uint256 tokenId) internal {
+        require(_exists(tokenId), 'TokenId already exists!');
 
+        tokenIdString = uint2str(tokenId);
+        _tokenURIS[tokenId] = strConcat(_baseTokenURI, tokenIdString);
+    }
 }
 
 //  TODO's: Create CustomERC721Token contract that inherits from the ERC721Metadata contract. You can name this contract as you please
@@ -529,6 +550,35 @@ contract ERC721Metadata is ERC721Enumerable, usingOraclize {
 //      -takes in a 'to' address, tokenId, and tokenURI as parameters
 //      -returns a true boolean upon completion of the function
 //      -calls the superclass mint and setTokenURI functions
+contract CustomERC721Token is ERC721Metadata(name, symbol, 'https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/)') {
 
+    /*constructor(string memory name, string memory symbol, string memory baseTokenURI) 
+        ERC721Metadata(
+        string name, 
+        string symbol, 
+        'https://s3-us-west-2.amazonaws.com/udacity-blockchain/capstone/')
+        public {}*/
 
+    function mint(address to, uint256 tokenId) public returns(bool){
+        require(msg.sender == _owner, "Only contract owner can call the mint()-function!");
+        
+        event TokenMinted(address to, uint256 tokenId);
+
+        //Accessing methods of parent-contracts with keyword "super."
+        super._mint(to, tokenId);
+        super._setTokenURI(tokenId);
+
+        //Emit event to track minting process
+        emit TokenMinted(to, tokenId);
+        
+        return true;
+
+    }
+}
+
+/*Further references:
+1.) ERC721 non-fungible (i.e. unique) tokens, see :
+Medium article: https://medium.com/blockchannel/walking-through-the-erc721-full-implementation-72ad72735f3c
+2.) Solidity-inheritance: https://www.bitdegree.org/learn/solidity-inheritance#:~:text=Solidity%20inheritance%20lets%20you%20combine,are%20derived%20(or%20children).
+*/
 
