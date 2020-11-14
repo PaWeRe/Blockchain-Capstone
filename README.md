@@ -11,7 +11,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 `0x37B941A794874269c4080009CC46b0d949E66D7c`
 
 # Contract ABI
-`[
+```[
     {
       "constant": true,
       "inputs": [
@@ -578,7 +578,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ]`
+  ]```
   
 
 # Contract Migrations to the Rinkeby Testnet
