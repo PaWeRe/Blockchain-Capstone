@@ -4,6 +4,7 @@ At present, property titles are often paper-based, creating opportunities for er
 ## [Storefront OpenSea-Marketplace](https://rinkeby.opensea.io/account)
 
 ![Storefront OpenSea-Marketplace](https://github.com/PaWeRe/Blockchain-Capstone/blob/master/images/Screenshot%202020-11-14%20at%2020.19.32.png)
+![Proof-of-token-transfer on OpenSea-Marketplace](https://github.com/PaWeRe/Blockchain-Capstone/blob/master/images/Screenshot%202020-11-14%20at%2020.47.58.png)
 
 # Testing 
 - Run `npm install` to install dependencies
