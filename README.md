@@ -8,7 +8,7 @@ The capstone will build upon the knowledge you have gained in the course in orde
 - Run command `test` within the development environment to test all relevant functions (10 in total)
 
 # Contract address (Rinkeby)
-`0x37B941A794874269c4080009CC46b0d949E66D7c`
+`0x37B941A794874269c4080009CC46b0d949E66D7c` [etherscan](https://rinkeby.etherscan.io/token/0x37B941A794874269c4080009CC46b0d949E66D7c)
 
 # Contract ABI
 ```
@@ -588,6 +588,16 @@ The capstone will build upon the knowledge you have gained in the course in orde
 ![Deploying 'Verifier' & 'SolnSquareVerifier'](https://github.com/PaWeRe/Blockchain-Capstone/blob/master/images/Screenshot%202020-11-14%20at%2018.17.00.png)
 
 # Tokens Minted
+- `0x109db1134db5416841de6d41eaca1b6ef362ea0e6aaa3cdea1ac74162534fe8f`
+- `0x59e5733bbe07a17d52ad13ae33b8912a9a9bb1108c75077ef85f52468254788f`
+- `0x68a94525b194528a54554b3ac0c77c09d2c666c8bbb42aad08df3f8f09057fa4`
+- `0xdfd95397d03fc639f19c792dbb211e5d198bbc94944b54bf66a63684b989c7aa`
+- `0x9a9e7b9709d24438b8f28d29a8bec84a95edbb902b224cef260cda1286934b86`
+- `0x1fda0c792f94c4e15ddd819e4856352b8b59b99c7b9f49a8890ba8b0fef7cd59`
+- `0x2591f5205ac4c0a1d99fdc3fefb9cd311c6cfb4865beef2e894dd3d4b2c9d2d4`
+- `0x1875c857d81c1ed854e5956b7de6f327ccc94a97fa9fc6e757a2a1a37560e55e`
+- `0xf4b077394ee7e5ed57291b4bd4d194f94c5cecf56cdf265f0c56edd7158a4cd5`
+- `0x468f14e42b7177530fa152845c4ed6560573d28a185cef9ec8e9e42e1f3a8696`
 
 # Project Resources
 * [Remix - Solidity IDE](https://remix.ethereum.org/)
