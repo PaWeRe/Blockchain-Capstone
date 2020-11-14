@@ -17,7 +17,7 @@ contract Verifier {
 contract SolnSquareVerifier is CustomERC721Token {
 
     //Safe way to keep track of number of solutons submitted (see ERC721Mintable.sol)
-    using SafeMath for uint256;
+    //using SafeMath for uint256;
 
     //Create variable of type Verifier for communication with verifier.sol
     Verifier private verifier;
