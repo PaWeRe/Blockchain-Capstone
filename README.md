@@ -2,16 +2,16 @@
 The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product. 
 
 # Testing 
-- Run 'npm install' to install dependencies
-- cd to 'eth_contracts'
-- Run 'truffle develop' to set up local development blockchain
-- Run command 'test' within the development environment to test all relevant functions (10 in total)
+- Run `npm install` to install dependencies
+- Change to following directory `cd eth_contracts`
+- Run `truffle develop` to set up local development blockchain
+- Run command `test` within the development environment to test all relevant functions (10 in total)
 
 # Contract address (Rinkeby)
-0x37B941A794874269c4080009CC46b0d949E66D7c
+`0x37B941A794874269c4080009CC46b0d949E66D7c`
 
 # Contract ABI
-'[
+`[
     {
       "constant": true,
       "inputs": [
@@ -578,12 +578,12 @@ The capstone will build upon the knowledge you have gained in the course in orde
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ]'
+  ]`
   
 
 # Contract Migrations to the Rinkeby Testnet
-1. ![Deploying 'Migrations'](https://github.com/PaWeRe/Blockchain-Capstone/blob/master/images/Screenshot%202020-11-14%20at%2018.16.34.png)
-2. ![Deploying 'Verifier' & 'SolnSquareVerifier'](https://github.com/PaWeRe/Blockchain-Capstone/blob/master/images/Screenshot%202020-11-14%20at%2018.17.00.png)
+![Deploying 'Migrations'](https://github.com/PaWeRe/Blockchain-Capstone/blob/master/images/Screenshot%202020-11-14%20at%2018.16.34.png)
+![Deploying 'Verifier' & 'SolnSquareVerifier'](https://github.com/PaWeRe/Blockchain-Capstone/blob/master/images/Screenshot%202020-11-14%20at%2018.17.00.png)
 
 # Tokens Minted
 
