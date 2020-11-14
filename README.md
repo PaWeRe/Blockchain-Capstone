@@ -1,5 +1,9 @@
 # Udacity Blockchain Capstone
-The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product. 
+At present, property titles are often paper-based, creating opportunities for errors and fraud. Title professionals find defects in 25% of all titles during the transaction process, according to the American Land Title Association. By using the ERC721-Token standard, non-fungible tokens can be developed (and later minted), representing each a certain Real Estate, that can be listed, sold and purchased in a complete decentralized manner, based on the Ethereum-Blockchain (in this case the Rinkeby-Testnet). Additionally, by using ZoKrates (a toolbox for zkSNARKs on Ethereum), so-called Succinct Zero-Knowledge proofs (zkSnarks) can be used to verify that the issuer of a certain token really is the owner of it, without disclosing any specific information to other participants in the marketplace.
+
+## [Storefront OpenSea-Marketplace](https://rinkeby.opensea.io/account)
+
+![Storefront OpenSea-Marketplace](https://github.com/PaWeRe/Blockchain-Capstone/blob/master/images/Screenshot%202020-11-14%20at%2020.19.32.png)
 
 # Testing 
 - Run `npm install` to install dependencies
