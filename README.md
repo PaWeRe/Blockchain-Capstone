@@ -1,6 +1,8 @@
 # Udacity Blockchain Capstone
 The capstone will build upon the knowledge you have gained in the course in order to build a decentralized housing product. 
 
+![Storefront OpenSea-Marketplace](https://github.com/PaWeRe/Blockchain-Capstone/blob/master/images/Screenshot%202020-11-14%20at%2020.19.32.png)
+
 # Testing 
 - Run `npm install` to install dependencies
 - Change to following directory `cd eth_contracts`
