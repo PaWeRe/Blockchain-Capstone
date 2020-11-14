@@ -3,14 +3,14 @@ pragma solidity >=0.5.0;
 
 import "./ERC721Mintable.sol";
 
-// TODO define a contract call to the zokrates generated solidity contract <Verifier> or <renamedVerifier>
+// TODO INTERFACE - define a contract call to the zokrates generated solidity contract <Verifier> or <renamedVerifier>
 contract Verifier {
     function verifyTx(
         uint[2] memory a,
         uint[2][2] memory b,
         uint[2] memory c, 
         uint[2] memory input
-    ) public returns(bool r) {}
+    ) public returns(bool r);
 }
 
 // TODO define another contract named SolnSquareVerifier that inherits from your ERC721Mintable class
@@ -43,6 +43,7 @@ contract SolnSquareVerifier is CustomERC721Token {
 
     // TODO Create an event to emit when a solution is added 
     event SolutionAdded(uint256 indexSolution, address addressSender, uint256 solutionsNumber);
+    event NewTokenMinted(address addressOwner, uint256 id);
 
     //Utility function - generate unique solution key
     function getSolutionKey
@@ -58,6 +59,16 @@ contract SolnSquareVerifier is CustomERC721Token {
         return keccak256(abi.encodePacked(a, b, c, input));
     }
 
+    //Utility function - get number of submitted solutions
+    function getSolutions() public view returns(uint256){
+        return numberSolutions;
+    } 
+
+    //Utility function - get owner of tokenId
+    function getOwnerOf(uint256 tokenId) public view returns(address) {
+        return super.ownerOf(tokenId);
+    }
+    
     // TODO Create a function to add the solutions to the mapping and emit the event
     function addSolution
                     (
@@ -81,7 +92,7 @@ contract SolnSquareVerifier is CustomERC721Token {
             sender: msg.sender
         });
 
-        numberSolutions.add(1);
+        numberSolutions++;
         emit SolutionAdded(submittedSolutions[solutionKey].index, msg.sender, numberSolutions);
     }
 
@@ -94,7 +105,9 @@ contract SolnSquareVerifier is CustomERC721Token {
                         uint[2] memory a,
                         uint[2][2] memory b,
                         uint[2] memory c, 
-                        uint[2] memory input
+                        uint[2] memory input,
+                        address to,
+                        uint256 tokenId
                     ) 
                     public 
     {
@@ -108,7 +121,12 @@ contract SolnSquareVerifier is CustomERC721Token {
 
         //Function call to add new solution to mapping and setting minted status on true
         addSolution(a, b, c, input);
+
+        //Mint token by accessing the mint function in the parents-class (by using super-keyword)
+        super.mint(to, tokenId);
+
         submittedSolutions[solutionKey].minted = true;
+        emit NewTokenMinted(to, tokenId);
 
     }
 
